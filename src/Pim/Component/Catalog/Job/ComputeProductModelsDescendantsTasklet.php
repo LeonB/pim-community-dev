@@ -56,7 +56,7 @@ class ComputeProductModelsDescendantsTasklet implements TaskletInterface
      * {@inheritdoc}
      *
      * As we used cache clearer on product model descendants saver,
-     * We should hydrate models one per one and we don't need anymore to detach entities
+     * We should hydrate models one per one and we don't need to detach entities anymore
      */
     public function execute(): void
     {
