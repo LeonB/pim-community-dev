@@ -67,6 +67,8 @@ class ProductModelDescendantsSaver implements SaverInterface
      * @param BulkObjectDetacherInterface         $bulkObjectDetacher
      * @param CacheClearerInterface               $cacheClearer
      * @param integer                             $batchSize
+     *
+     * TODO Merge: Remove default values for the 3 last parameters
      */
     public function __construct(
         ObjectManager $entityManager,
@@ -92,6 +94,8 @@ class ProductModelDescendantsSaver implements SaverInterface
 
     /**
      * {@inheritdoc}
+     *
+     * TODO Merge: Remove check on nullable cache clearer
      */
     public function save($productModel, array $options = []): void
     {
@@ -108,6 +112,8 @@ class ProductModelDescendantsSaver implements SaverInterface
 
     /**
      * @param ProductModelInterface $productModel
+     *
+     * TODO Merge: Remove check on nullable bulk object detacher
      */
     private function computeCompletenessAndIndexDescendantProducts(ProductModelInterface $productModel): void
     {
@@ -135,6 +141,9 @@ class ProductModelDescendantsSaver implements SaverInterface
         if (!empty($productsBatch)) {
             $this->computeCompletenesses($productsBatch);
             $this->indexProducts($productsBatch);
+            if (null !== $this->bulkObjectDetacher) {
+                $this->bulkObjectDetacher->detachAll($productsBatch);
+            }
         }
     }
 
