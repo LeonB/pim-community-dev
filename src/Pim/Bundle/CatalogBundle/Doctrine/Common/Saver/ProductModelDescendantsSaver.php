@@ -77,7 +77,7 @@ class ProductModelDescendantsSaver implements SaverInterface
         BulkIndexerInterface $productModelIndexer,
         BulkObjectDetacherInterface $bulkObjectDetacher = null,
         CacheClearerInterface $cacheClearer = null,
-        $batchSize = self::INDEX_BULK_SIZE
+        int $batchSize = self::INDEX_BULK_SIZE
     ) {
         $this->objectManager = $entityManager;
         $this->productModelRepository = $productModelRepository;
@@ -109,7 +109,7 @@ class ProductModelDescendantsSaver implements SaverInterface
     /**
      * @param ProductModelInterface $productModel
      */
-    private function computeCompletenessAndIndexDescendantProducts(ProductModelInterface $productModel)
+    private function computeCompletenessAndIndexDescendantProducts(ProductModelInterface $productModel): void
     {
         $identifiers = $this->productModelRepository->findDescendantProductIdentifiers($productModel);
         $pqb = $this->pqbFactory->create();
@@ -141,7 +141,7 @@ class ProductModelDescendantsSaver implements SaverInterface
     /**
      * @param ProductModelInterface $productModel
      */
-    private function indexProductModelChildren(ProductModelInterface $productModel)
+    private function indexProductModelChildren(ProductModelInterface $productModel): void
     {
         $productModelsChildren = $this->productModelRepository->findChildrenProductModels($productModel);
         if (!empty($productModelsChildren)) {
