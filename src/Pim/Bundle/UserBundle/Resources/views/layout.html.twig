@@ -11,6 +11,12 @@
             <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
             {% include 'OroAsseticBundle:Assets:oro_css.html.twig' %}
         {% endblock %}
+        <script type="text/javascript" src="{{asset('dist/manifest.min.js', 'frontend')}} "></script>
+        <script type="text/javascript" src="{{asset('dist/lib.min.js', 'frontend')}} "></script>
+        <script type="text/javascript" src="{{asset('dist/vendor.min.js', 'frontend')}} "></script>
+        <script type="text/javascript" src="{{asset('dist/main.min.js', 'frontend')}} "></script>
+        <script type="text/javascript" src="{{asset('bundles/pimui/lib/bootstrap/js/bootstrap.js', 'frontend')}} "></script>
+
     {% endblock %}
 </head>
 <body class="{% block bodyClass %}{% endblock %}">
@@ -33,5 +39,8 @@
             {% endblock main %}
         </div>
     </div>
+    <script type="text/javascript">
+        $('[data-toggle="tooltip"]').tooltip()
+    </script>
 </body>
 </html>
