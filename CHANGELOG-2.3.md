@@ -4,6 +4,7 @@
 
 - PIM-7347: Improve the calculation of the completeness for locale specific attributes.
 - PIM-7345: Remove the "is empty" operator for sku.
+- PIM-7209: As John, I want to be able to get info about my catalog volume.
 
 # 2.3.0-ALPHA2 (2018-06-07)
 
@@ -16,9 +17,12 @@
 - PIM-6250: As Julia, I would like to change the parent of a variant product/sub product model from the UI
 - PIM-6784: Improve the product grid search with categories for products with variants
 - PIM-7308: As Julia, I would like to bulk add product models associations if product models are selected.
+- PIM-7293: As Julia, I would like to export variant products associations with their parent associations.
 - PIM-7001: Don't display remove button on an association if it comes from inheritance
 - PIM-7390: In the Product Edit Form, we now keep the context of attributes filter (missing, all, level specific...)
 - PIM-7430: mass associate generate new product version
+- PIM-7298: As Julia, I would like to change the parent of a sub product model by import.
+- PIM-6350: As Julia, I would like to change the parent of a variant product/sub product model from the UI.
 
 ## Technical improvements
 
